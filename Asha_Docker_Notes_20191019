@@ -1,0 +1,77 @@
+Installing DOCKER
+====================
+COMMANDS
+====================
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+sudo yum install -y docker-ce
+sudo yum install -y docker-ce
+docker -v
+sudo systemctl enable docker
+sudo systemctl start docker
+docker info
+which docker
+ps -eaf | grep docker
+
+==================
+Install JENKINS
+==================
+docker pull jenkins
+docker images
+docker ps
+docker ps -a
+docker create jenkins
+docker ps -a
+docker start 
+
+**************docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+jenkins             latest              cd14cecfdb3a        15 months ago       696MB
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+**************docker create jenkins
+5f9abb92e0eec0752ab3a9c589d7ca493130bb1aebd59adbafb9e9504478bff5
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   25 seconds ago      Created                                 clever_margulis
+**************docker start 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   2 minutes ago       Up About a minute   8080/tcp, 50000/tcp   clever_margulis
+**************docker stop 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS               NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   2 minutes ago       Exited (143) 3 seconds ago                       clever_margulis
+**************docker restart 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   2 minutes ago       Up 1 second         8080/tcp, 50000/tcp   clever_margulis
+**************docker pause 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS                 NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   3 minutes ago       Up 15 seconds (Paused)   8080/tcp, 50000/tcp   clever_margulis
+**************docker unpause 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   3 minutes ago       Up 24 seconds       8080/tcp, 50000/tcp   clever_margulis
+**************docker stop 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+5f9abb92e0ee        jenkins             "/bin/tini -- /usr/l…"   3 minutes ago       Exited (143) 1 second ago                       clever_margulis
+**************docker delete 5f9abb92e0ee
+docker: 'delete' is not a docker command.
+See 'docker --help'
+**************docker rm 5f9abb92e0ee
+5f9abb92e0ee
+**************docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[root@ip-172-31-20-65 ec2-user]#
+
